@@ -52,6 +52,9 @@
             // ...mapActions({
             //     sbt:saveMsg
             // })
+            sbt:function(obj){
+                this.$state.msg.push(obj);
+            }
         }
     }
 </script>

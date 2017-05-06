@@ -68,6 +68,10 @@
             // ...mapGetters([
             //     getMsg
             // ])
+
+        },
+        mounted:function(){
+            console.log(this.$state.msg);
         }
     }
 </script>
