@@ -2,10 +2,10 @@
     vuex的测试demo
 # 安装
     npm install
-    接着全局安装webpack
-        npm i -g webpack
-    全局安装webpack-dev-server
-        npm i -g webpack-dev-server
+## 全局安装webpack
+    npm i -g webpack
+## 全局安装webpack-dev-server
+    npm i -g webpack-dev-server
 # 开启服务
     webpack-dev-server
     默认地址为localhost:8080
