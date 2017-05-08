@@ -65,18 +65,24 @@
             ————通过这种方式，从而完成了组件一到组件二之间的通信
          */
         methods:{
-            // ...mapGetters([
-            //     getMsg
-            // ])
 
         },
+        /**
+         * @desc mounted，当页面DOM元素加载完成之后的回调函数，
+                我们通过这个钩子函数来实现store里的数据和本组件数据的更新
+         */
         mounted:function(){
             if(this.$store.state.msg[0] != null){
-                console.log(this.$store.state.msg);                
-                var obj = this.$store.state.msg[0];
-                obj.id = this.tableData.length + 1;
-                this.tableData.push(obj);
-                this.$store.state.msg = [];
+                //获取store里的数据，访问state使用$store
+                // console.log(this.$store.state.msg);
+                var obj = this.$store.state.msg;
+                
+                for(var i = 0 ; i<obj.length;i++){
+                    obj[i].id = this.tableData.length + 1;
+                    this.tableData.push(obj[i]);
+                }
+                
+                // this.$store.state.msg = [];
             }
             
         }

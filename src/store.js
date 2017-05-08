@@ -16,6 +16,9 @@ const actions={
     // 外界传来的值将其保存到outerData这个变量中，提交给mutations进一步处理
     saveMsg({commit},outerData){
         commit('mutaSave',outerData)
+    },
+    initMsg(){
+        commit('initMsg')
     }
 }
 /**
@@ -24,6 +27,9 @@ const actions={
 const mutations={
     mutaSave(state,outerData){
         state.msg.push(outerData);
+    },
+    initMsg(){
+        state.msg = [];
     }
 }
 /**

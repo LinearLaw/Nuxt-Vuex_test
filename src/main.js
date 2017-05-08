@@ -11,7 +11,6 @@ import store from "./store.js"
 import router from "./router"
 import "./less/common.less"
 
-// Vue.use(Vuex);
 new Vue({
     el:"#app",
     router,
