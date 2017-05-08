@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="key in tabledata">
+            <tr v-for="key in tableData">
                 <td>{{key.id}}</td>
                 <td>{{key.name}}</td>
                 <td>{{key.age}}</td>
@@ -44,7 +44,7 @@
     export default{
         data:function(){
             return{
-                tabledata:[
+                tableData:[
                     {id:"1",name:"Jack",age:"18",gender:"male"},
                     {id:"2",name:"Rose",age:"18",gender:"male"},
                     {id:"3",name:"Michael",age:"18",gender:"male"},
@@ -71,7 +71,14 @@
 
         },
         mounted:function(){
-            console.log(this.$state.msg);
+            if(this.$store.state.msg[0] != null){
+                console.log(this.$store.state.msg);                
+                var obj = this.$store.state.msg[0];
+                obj.id = this.tableData.length + 1;
+                this.tableData.push(obj);
+                this.$store.state.msg = [];
+            }
+            
         }
     }
 </script>

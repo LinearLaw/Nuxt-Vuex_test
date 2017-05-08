@@ -53,7 +53,9 @@
             //     sbt:saveMsg
             // })
             sbt:function(obj){
-                this.$state.msg.push(obj);
+                this.$store.state.msg.push(obj);
+                alert("Successful!");
+                return false;
             }
         }
     }
