@@ -53,8 +53,8 @@
             //     sbt:saveMsg
             // })
             sbt:function(obj){
-                this.$store.state.msg.push(obj);
-                alert("Successful!");
+                this.$store.dispatch('saveMsg');
+                // alert("Successful!");
                 return false;
             }
         }
