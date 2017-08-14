@@ -52,13 +52,21 @@
             ...mapMutations(["mutaSave"]),
             ...mapActions(["saveMsg"]),
             /**
-             *  @desc mapActions中的方法可以将数据提交到状态管理器中
+             *  @desc mapActions中的方法可以将数据提交到mutations的方法中
+             *          mapMutations的方法可以将数据更改到state中
+             *          应该避免绕过mutations直接操作state，否则flux架构的引入没有了意义
              */
             sbt:function(obj){
-                this.$store.dispatch('saveMsg',obj);
-                //this.saveMsg(obj)     //也可以mapActions后的方法名来直接调用，mapMutations同理
-                // alert("Successful!");
+                // this.$store.commit('mutaSave',obj);
+                this.mutaSave(obj);     
                 return false;
+            },
+            delaySbt:function(obj){
+                setTimeout(()=>{
+                    //tips : dispatch和直接this调用二者等价
+                    // this.$store.dispatch('saveMsg',obj);
+                    this.saveMsg(obj);  
+                },1000)
             }
         }
     }

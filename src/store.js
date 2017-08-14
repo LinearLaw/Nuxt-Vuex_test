@@ -35,7 +35,7 @@ const mutations={
 /**
  * @desc getter用于将state的数据发送出去，外界调用其内部方法即可访问到state
  */
-const getter={
+const getter = {
     getMsg(state){
         console.log(state.msg)
     }
