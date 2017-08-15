@@ -5,7 +5,7 @@
             Name: <input type="text" placeholder="Please input name" v-model="person.name">
             Age: <input type="text" placeholder="Please input age" v-model="person.age">
             Gender: <input type="text" placeholder="Please input gender" v-model="person.gender">
-            <button id="btn" @click="sbt(person)">Submit</button>
+            <button id="btn" @click.stop="sbt(person)">Submit</button>
         </form>    
     </div>
 
@@ -58,6 +58,7 @@
              */
             sbt:function(obj){
                 // this.$store.commit('mutaSave',obj);
+
                 this.mutaSave(obj);     
                 return false;
             },
