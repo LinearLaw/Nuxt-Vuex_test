@@ -14,3 +14,14 @@
     vuex@2.3.1
     vue-router@2.5.3
 
+    主要用于测试vuex。
+    vuex有四大部分，state，mutations，actions，getters。
+
+    数据流
+        同步下：state ——> view(html) ——> (event触发)commit ——> mutations 
+                                                            ——> state
+
+        异步下：state ——> view(html) ——> (event触发)dispatch ——> actions 
+                                    ——> commit ——> mutations ——> state
+
+
