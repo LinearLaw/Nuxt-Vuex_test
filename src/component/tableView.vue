@@ -11,7 +11,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="key in tableData">
+            <tr v-if="tableData.length<=0">（No Data）暂无数据</tr>
+            <tr v-if="tableData.length>0" v-for="key in tableData">
                 <td>{{key.id}}</td>
                 <td>{{key.name}}</td>
                 <td>{{key.age}}</td>
@@ -44,15 +45,15 @@
     export default{
         data:function(){
             return{
-                tableData:[
-                    {id:"1",name:"Jack",age:"18",gender:"male"},
-                    {id:"2",name:"Rose",age:"18",gender:"male"},
-                    {id:"3",name:"Michael",age:"18",gender:"male"},
-                    {id:"4",name:"Peter",age:"18",gender:"male"},
-                    {id:"5",name:"Mary",age:"18",gender:"male"},
-                    {id:"6",name:"Sunny",age:"18",gender:"male"},
-                    {id:"7",name:"Rebecca",age:"18",gender:"male"}
-                ]
+                // tableData:[
+                //     {id:"1",name:"Jack",age:"18",gender:"male"},
+                //     {id:"2",name:"Rose",age:"18",gender:"male"},
+                //     {id:"3",name:"Michael",age:"18",gender:"male"},
+                //     {id:"4",name:"Peter",age:"18",gender:"male"},
+                //     {id:"5",name:"Mary",age:"18",gender:"male"},
+                //     {id:"6",name:"Sunny",age:"18",gender:"male"},
+                //     {id:"7",name:"Rebecca",age:"18",gender:"male"}
+                // ]
             }
         },
         /**
@@ -71,26 +72,19 @@
             /**
              * @description  利用mapState，将state的数据导入到当前组件
              */
-            ...mapState(["msg"])
+            ...mapState(["msg"]),
+            tableData:function(){
+                return this.msg
+            }
         },
         /**
          * @desc mounted，当页面DOM元素加载完成之后的回调函数，
                 我们通过这个钩子函数来实现store里的数据和本组件数据的更新
          */
         mounted:function(){
-            if(this.$store.state.msg[0] != null){
-                //获取store里的数据，访问state使用$store
-                // console.log(this.$store.state.msg);
-                var obj = this.$store.state.msg;
-                
-                for(var i = 0 ; i<obj.length;i++){
-                    obj[i].id = this.tableData.length + 1;
-                    this.tableData.push(obj[i]);
-                }
-                
-                // this.$store.state.msg = [];
-            }
-            
+            //获取store里的数据，访问state使用$store
+            //  console.log(this.$store.state.msg);
+            //  mounted时，msg还没有加载，在这里使用this.msg将会报错
         }
     }
 </script>

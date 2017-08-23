@@ -5,6 +5,7 @@
             Name: <input type="text" placeholder="Please input name" v-model="person.name">
             Age: <input type="text" placeholder="Please input age" v-model="person.age">
             Gender: <input type="text" placeholder="Please input gender" v-model="person.gender">
+            <div v-if="text_shows" class="success_text">成功！</div>
             <button id="btn" @click.stop="sbt(person)">Submit</button>
         </form>    
     </div>
@@ -30,6 +31,9 @@
                 margin-top:30px;
                 margin-left:200px;
             }
+            .success_text{
+                color:green;
+            }
         }
     }
 </style>
@@ -42,7 +46,8 @@
                     name:"",
                     age:"",
                     gender:""
-                }
+                },
+                text_shows:false
             }
         },
         methods:{
@@ -60,6 +65,10 @@
                 // this.$store.commit('mutaSave',obj);
 
                 this.mutaSave(obj);     
+                this.text_shows = true;
+                setTimeout(()=>{
+                    this.text_shows = false;
+                },1000)
                 return false;
             },
             delaySbt:function(obj){
