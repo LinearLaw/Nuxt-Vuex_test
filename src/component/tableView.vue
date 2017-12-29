@@ -40,7 +40,7 @@
     }
 </style>
 <script>
-    import {mapGetters} from "vuex"
+    import {mapState,mapGetters} from "vuex"
     export default{
         data:function(){
             return{
@@ -66,6 +66,12 @@
          */
         methods:{
 
+        },
+        computed:{
+            /**
+             * @description  利用mapState，将state的数据导入到当前组件
+             */
+            ...mapState(["msg"])
         },
         /**
          * @desc mounted，当页面DOM元素加载完成之后的回调函数，

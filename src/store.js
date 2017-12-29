@@ -10,7 +10,7 @@ const state={
     msg:[]
 }
 /**
- * @desc 外界要传值给store，则调用actions里的方法
+ * @desc actions里面原则上都写异步操作，如ajax
  */
 const actions={
     // 外界传来的值将其保存到outerData这个变量中，提交给mutations进一步处理

@@ -34,7 +34,7 @@
     }
 </style>
 <script>
-    import {mapActions} from "vuex"
+    import {mapMutations,mapActions} from "vuex"
     export default{
         data:function(){
             return{
@@ -47,13 +47,16 @@
         },
         methods:{
             /**
+             * @description  利用扩展运算符，可将actions/state/mutations的内容引入
+             */
+            ...mapMutations(["mutaSave"]),
+            ...mapActions(["saveMsg"]),
+            /**
              *  @desc mapActions中的方法可以将数据提交到状态管理器中
              */
-            // ...mapActions({
-            //     sbt:saveMsg
-            // })
             sbt:function(obj){
                 this.$store.dispatch('saveMsg',obj);
+                //this.saveMsg(obj)     //也可以mapActions后的方法名来直接调用，mapMutations同理
                 // alert("Successful!");
                 return false;
             }
