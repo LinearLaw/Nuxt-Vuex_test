@@ -26,7 +26,9 @@ const actions={
  */
 const mutations={
     mutaSave(state,outerData){
+        
         state.msg.push(outerData);
+        console.log(state.msg);
     },
     initMsg(){
         state.msg = [];
