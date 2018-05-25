@@ -98,12 +98,12 @@
 
     npm i -g webpack-dev-server
 
-# 开启服务
+## 开启服务
 
     webpack-dev-server
     默认地址为localhost:8080
 
-# Main plugin
+## Main plugin
 
     vue@^2.3.2
     vuex@2.3.1
