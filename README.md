@@ -84,7 +84,6 @@
 
 ## Nuxt中使用Vuex
     
-
     nuxt.js自带了vuex的引用，因此只需要设置index.js的参数即可
     在store文件夹中创建index.js文件，对vuex进行配置
 
@@ -100,6 +99,9 @@
             increment (state) {
               state.counter++
             }
+          },
+          actions:{
+            
           }
         })
         export default store;
