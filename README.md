@@ -83,22 +83,26 @@
         则文件路径设置为：/path/_id.vue
 
 ## Nuxt中使用Vuex
-        
-    import Vue from 'vue'
-    import Vuex from 'vuex'
+    
 
-    Vue.use(Vuex)
-    const store = () => new Vuex.Store({
-      state: {
-        counter: 0
-      },
-      mutations: {
-        increment (state) {
-          state.counter++
-        }
-      }
-    })
-    export default store;
+    nuxt.js自带了vuex的引用，因此只需要设置index.js的参数即可
+    在store文件夹中创建index.js文件，对vuex进行配置
+
+        import Vue from 'vue'
+        import Vuex from 'vuex'
+
+        Vue.use(Vuex)
+        const store = () => new Vuex.Store({
+          state: {
+            counter: 0
+          },
+          mutations: {
+            increment (state) {
+              state.counter++
+            }
+          }
+        })
+        export default store;
 
 #   Vuex test
 
