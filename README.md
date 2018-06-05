@@ -82,6 +82,24 @@
         例如需要的路由路径为：/path/:id
         则文件路径设置为：/path/_id.vue
 
+## Nuxt中使用Vuex
+        
+    import Vue from 'vue'
+    import Vuex from 'vuex'
+
+    Vue.use(Vuex)
+    const store = () => new Vuex.Store({
+      state: {
+        counter: 0
+      },
+      mutations: {
+        increment (state) {
+          state.counter++
+        }
+      }
+    })
+    export default store;
+
 #   Vuex test
 
     用于测试vuex
