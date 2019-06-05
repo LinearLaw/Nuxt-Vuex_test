@@ -13,7 +13,7 @@ const store = () => new Vuex.Store({
   },
   actions:{
      nuxtServerInit ({ commit }, { req }) {
-        if (req.session.user) {
+        if (req.session && req.session.user) {
           commit('user', req.session.user)
         }
       }
